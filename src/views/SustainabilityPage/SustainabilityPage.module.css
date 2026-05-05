@@ -1,0 +1,157 @@
+.page {
+  padding-top: var(--header-h);
+}
+
+.hero {
+  position: relative;
+  height: 80vh;
+  min-height: 480px;
+  overflow: hidden;
+}
+
+.heroImage {
+  object-fit: cover;
+  filter: brightness(0.55);
+}
+
+.heroContent {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--sp-8);
+}
+
+.heroTitle {
+  font-family: var(--ff-display);
+  font-size: var(--fs-h1);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--clr-white);
+  letter-spacing: var(--ls-tighter);
+  line-height: var(--lh-display);
+}
+
+.stats {
+  padding: var(--sp-20) var(--gutter);
+  background-color: var(--clr-off-white);
+}
+
+.statsInner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-8);
+  text-align: center;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--sp-4);
+}
+
+.statNumber {
+  font-family: var(--ff-display);
+  font-size: var(--fs-h1);
+  font-style: italic;
+  font-weight: 700;
+  color: var(--clr-black);
+  letter-spacing: var(--ls-tighter);
+}
+
+.statLabel {
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+  color: var(--clr-gray-mid);
+  max-width: 200px;
+  line-height: var(--lh-body);
+}
+
+.pillars {
+  padding: var(--sp-20) var(--gutter);
+}
+
+.pillarsInner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.pillarsTitle {
+  font-family: var(--ff-display);
+  font-size: var(--fs-h2);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--clr-black);
+  letter-spacing: var(--ls-tighter);
+  margin-bottom: var(--sp-12);
+}
+
+.pillarsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-8);
+}
+
+.pillar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+
+.pillarBorder {
+  height: 2px;
+  background-color: var(--clr-black);
+  width: 100%;
+}
+
+.pillarTitle {
+  font-family: var(--ff-display);
+  font-size: var(--fs-h3);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--clr-black);
+  letter-spacing: var(--ls-tight);
+}
+
+.pillarText {
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+  color: var(--clr-gray-dark);
+  line-height: var(--lh-body);
+}
+
+.quoteSection {
+  padding: var(--sp-20) var(--gutter);
+  background-color: var(--clr-black);
+}
+
+.blockquote {
+  max-width: 680px;
+  margin: 0 auto;
+  font-family: var(--ff-display);
+  font-size: clamp(20px, 3vw, 32px);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--clr-white);
+  text-align: center;
+  letter-spacing: var(--ls-tight);
+  line-height: var(--lh-heading);
+}
+
+.cta {
+  padding: var(--sp-16) var(--gutter);
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .statsInner,
+  .pillarsGrid {
+    grid-template-columns: 1fr;
+  }
+}

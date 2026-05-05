@@ -1,0 +1,139 @@
+.item {
+  display: flex;
+  gap: var(--sp-4);
+  padding: var(--sp-5) 0;
+  border-bottom: var(--border-default);
+}
+
+.imageLink {
+  display: block;
+  flex-shrink: 0;
+}
+
+.imageWrap {
+  position: relative;
+  width: 72px;
+  height: 88px;
+  overflow: hidden;
+  background-color: var(--clr-off-white);
+}
+
+.image {
+  object-fit: cover;
+}
+
+.details {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 0;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--sp-2);
+}
+
+.brand {
+  font-family: var(--ff-body);
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--clr-gray-mid);
+  margin-bottom: var(--sp-1);
+}
+
+.name {
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--clr-black);
+  text-decoration: none;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transition: color var(--ease-fast);
+}
+
+.name:hover {
+  color: var(--clr-gray-dark);
+}
+
+.size {
+  font-family: var(--ff-body);
+  font-size: var(--fs-xs);
+  color: var(--clr-gray-mid);
+  margin-top: var(--sp-1);
+}
+
+.removeBtn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 11px;
+  color: var(--clr-gray-mid);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: color var(--ease-fast);
+}
+
+.removeBtn:hover {
+  color: var(--clr-black);
+}
+
+.bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.qtyRow {
+  display: flex;
+  align-items: center;
+  border: var(--border-default);
+}
+
+.qtyBtn {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ff-body);
+  font-size: 16px;
+  color: var(--clr-black);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--ease-fast);
+}
+
+.qtyBtn:hover {
+  background-color: var(--clr-gray-pale);
+}
+
+.qty {
+  width: 28px;
+  text-align: center;
+  font-family: var(--ff-body);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  border-left: var(--border-default);
+  border-right: var(--border-default);
+  line-height: 28px;
+}
+
+.price {
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--clr-black);
+}

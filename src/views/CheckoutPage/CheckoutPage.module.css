@@ -1,0 +1,336 @@
+.page {
+  padding-top: calc(var(--header-h) + var(--sp-10));
+  padding-bottom: var(--sp-20);
+}
+
+.inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: var(--sp-12);
+  align-items: flex-start;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-8);
+}
+
+/* Progress */
+.progress {
+  display: flex;
+  align-items: center;
+  gap: 0;
+  margin-bottom: var(--sp-4);
+}
+
+.step {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  opacity: 0.4;
+  transition: opacity var(--ease-base);
+}
+
+.stepActive {
+  opacity: 1;
+}
+
+.stepDot {
+  width: 28px;
+  height: 28px;
+  border-radius: var(--radius-pill);
+  border: var(--border-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ff-body);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  flex-shrink: 0;
+}
+
+.stepLabel {
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.stepLine {
+  flex: 1;
+  height: 1px;
+  background-color: var(--clr-border);
+  margin: 0 var(--sp-3);
+  min-width: var(--sp-8);
+}
+
+/* Section */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+}
+
+.sectionTitle {
+  font-family: var(--ff-display);
+  font-size: var(--fs-h3);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--clr-black);
+  letter-spacing: var(--ls-tight);
+}
+
+.subsectionTitle {
+  font-family: var(--ff-body);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--clr-black);
+  margin-bottom: var(--sp-4);
+}
+
+.formGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-6) var(--sp-8);
+}
+
+/* Delivery options */
+.deliveryMethods {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.radioCard {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  padding: var(--sp-5) var(--sp-6);
+  border: var(--border-default);
+  cursor: pointer;
+  transition: border-color var(--ease-fast);
+}
+
+.radioCardSelected {
+  border-color: var(--clr-black);
+}
+
+.radioInput {
+  accent-color: var(--clr-black);
+  flex-shrink: 0;
+}
+
+.radioTitle {
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--clr-black);
+}
+
+.radioSub {
+  font-family: var(--ff-body);
+  font-size: var(--fs-xs);
+  color: var(--clr-gray-mid);
+  margin-top: var(--sp-1);
+}
+
+.radioPrice {
+  margin-left: auto;
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--clr-black);
+}
+
+/* Payment */
+.paymentTabs {
+  display: flex;
+  border: var(--border-default);
+  overflow: hidden;
+}
+
+.tab {
+  flex: 1;
+  padding: var(--sp-4) var(--sp-3);
+  background: transparent;
+  border: none;
+  border-right: var(--border-default);
+  cursor: pointer;
+  font-family: var(--ff-body);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  color: var(--clr-gray-mid);
+  transition: background-color var(--ease-fast), color var(--ease-fast);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tab:last-child {
+  border-right: none;
+}
+
+.tab:hover {
+  background-color: var(--clr-gray-pale);
+}
+
+.tabActive {
+  background-color: var(--clr-black);
+  color: var(--clr-white);
+}
+
+.tabLogo {
+  object-fit: contain;
+  filter: grayscale(1) brightness(2);
+}
+
+.tabActive .tabLogo {
+  filter: grayscale(1) brightness(10);
+}
+
+.paymentForm {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-5);
+}
+
+.cardRow {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--sp-5);
+}
+
+.codMessage {
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+  color: var(--clr-gray-dark);
+  padding: var(--sp-5) var(--sp-6);
+  border: var(--border-default);
+}
+
+.stepBtns {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-5);
+}
+
+.backBtn {
+  background: transparent;
+  border: none;
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+  color: var(--clr-gray-mid);
+  cursor: pointer;
+  text-decoration: underline;
+  transition: color var(--ease-fast);
+}
+
+.backBtn:hover {
+  color: var(--clr-black);
+}
+
+/* Review */
+.reviewItems {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+  border-top: var(--border-default);
+}
+
+.reviewItem {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--sp-4);
+  padding: var(--sp-4) 0;
+  border-bottom: var(--border-default);
+}
+
+.reviewName {
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--clr-black);
+  flex: 1;
+}
+
+.reviewMeta {
+  font-family: var(--ff-body);
+  font-size: var(--fs-xs);
+  color: var(--clr-gray-mid);
+}
+
+.reviewPrice {
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--clr-black);
+}
+
+/* Sidebar */
+.sidebar {
+  position: sticky;
+  top: calc(var(--header-h) + var(--sp-6));
+  padding: var(--sp-6);
+  border: var(--border-default);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.summaryTitle {
+  font-family: var(--ff-body);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--clr-black);
+  margin-bottom: var(--sp-2);
+}
+
+.summaryItem {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--sp-3);
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+  color: var(--clr-black);
+}
+
+.summaryItemName {
+  flex: 1;
+  color: var(--clr-gray-dark);
+}
+
+.summaryTotal {
+  display: flex;
+  justify-content: space-between;
+  font-family: var(--ff-body);
+  font-size: var(--fs-body);
+  font-weight: 600;
+  color: var(--clr-black);
+  border-top: var(--border-default);
+  padding-top: var(--sp-4);
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+
+  .sidebar {
+    position: static;
+    order: -1;
+  }
+
+  .formGrid {
+    grid-template-columns: 1fr;
+  }
+}

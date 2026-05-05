@@ -1,0 +1,105 @@
+.page {
+  padding-top: calc(var(--header-h) + var(--sp-12));
+  padding-bottom: var(--sp-24);
+}
+
+.inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  display: grid;
+  grid-template-columns: 220px 1fr;
+  gap: var(--sp-16);
+  align-items: flex-start;
+}
+
+.toc {
+  position: sticky;
+  top: calc(var(--header-h) + var(--sp-8));
+}
+
+.tocTitle {
+  font-family: var(--ff-body);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--clr-black);
+  margin-bottom: var(--sp-5);
+}
+
+.tocList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+.tocLink {
+  font-family: var(--ff-body);
+  font-size: 13px;
+  color: var(--clr-gray-mid);
+  text-decoration: none;
+  transition: color var(--ease-fast);
+  line-height: var(--lh-body);
+}
+
+.tocLink:hover {
+  color: var(--clr-black);
+}
+
+.content {
+  max-width: 720px;
+}
+
+.heading {
+  font-family: var(--ff-display);
+  font-size: var(--fs-h1);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--clr-black);
+  letter-spacing: var(--ls-tighter);
+  margin-bottom: var(--sp-3);
+}
+
+.updated {
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+  color: var(--clr-gray-mid);
+  margin-bottom: var(--sp-10);
+}
+
+.section {
+  margin-bottom: var(--sp-10);
+  scroll-margin-top: calc(var(--header-h) + var(--sp-8));
+}
+
+.sectionTitle {
+  font-family: var(--ff-display);
+  font-size: var(--fs-h3);
+  font-weight: 400;
+  font-style: italic;
+  color: var(--clr-black);
+  letter-spacing: var(--ls-tight);
+  margin-bottom: var(--sp-5);
+}
+
+.sectionText {
+  font-family: var(--ff-body);
+  font-size: var(--fs-body);
+  color: var(--clr-gray-dark);
+  line-height: 1.75;
+}
+
+@media (max-width: 768px) {
+  .inner {
+    grid-template-columns: 1fr;
+  }
+
+  .toc {
+    position: static;
+    border-bottom: var(--border-default);
+    padding-bottom: var(--sp-6);
+    margin-bottom: var(--sp-6);
+  }
+}

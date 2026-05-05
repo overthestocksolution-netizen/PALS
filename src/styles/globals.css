@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600&display=swap');
+
+:root {
+  /* ── Colors ── */
+  --clr-black:       #000000;
+  --clr-white:       #FFFFFF;
+  --clr-off-white:   #F7F6F4;
+  --clr-charcoal:    #1A1A1A;
+  --clr-gray-dark:   #3D3D3D;
+  --clr-gray-mid:    #888888;
+  --clr-gray-light:  #C8C8C8;
+  --clr-gray-pale:   #EBEBEB;
+  --clr-border:      #E0E0E0;
+
+  /* ── Typography ── */
+  --ff-display:      'Playfair Display', Georgia, serif;
+  --ff-body:         'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --fs-hero:         clamp(52px, 8vw, 110px);
+  --fs-h1:           clamp(36px, 5vw, 68px);
+  --fs-h2:           clamp(26px, 4vw, 48px);
+  --fs-h3:           clamp(18px, 2.5vw, 30px);
+  --fs-body:         16px;
+  --fs-sm:           14px;
+  --fs-xs:           12px;
+  --fs-label:        11px;
+
+  --lh-display:      1.05;
+  --lh-heading:      1.15;
+  --lh-body:         1.7;
+
+  --ls-tighter:      -0.03em;
+  --ls-tight:        -0.01em;
+  --ls-normal:       0em;
+  --ls-wide:         0.05em;
+  --ls-wider:        0.10em;
+  --ls-label:        0.18em;
+
+  /* ── Spacing (8px base grid) ── */
+  --sp-1:   4px;
+  --sp-2:   8px;
+  --sp-3:   12px;
+  --sp-4:   16px;
+  --sp-5:   20px;
+  --sp-6:   24px;
+  --sp-8:   32px;
+  --sp-10:  40px;
+  --sp-12:  48px;
+  --sp-16:  64px;
+  --sp-20:  80px;
+  --sp-24:  96px;
+  --sp-32:  128px;
+  --sp-40:  160px;
+
+  /* ── Borders & Radius ── */
+  --radius-none:     0px;
+  --radius-sm:       4px;
+  --radius-pill:     9999px;
+  --border-default:  1px solid var(--clr-border);
+  --border-dark:     1px solid var(--clr-black);
+  --border-mid:      1px solid var(--clr-gray-light);
+
+  /* ── Transitions ── */
+  --ease-fast:       150ms ease;
+  --ease-base:       250ms ease;
+  --ease-slow:       400ms ease;
+  --ease-slower:     600ms ease;
+
+  /* ── Layout ── */
+  --header-h:        72px;
+  --max-w:           1440px;
+  --gutter:          clamp(16px, 3vw, 48px);
+  --sidebar-w:       280px;
+
+  /* ── Shadows ── */
+  --shadow-sm:       0 1px 4px rgba(0,0,0,0.07);
+  --shadow-md:       0 4px 18px rgba(0,0,0,0.09);
+  --shadow-lg:       0 12px 40px rgba(0,0,0,0.13);
+}
+
+/* ── Reset ── */
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { font-size: 16px; scroll-behavior: smooth; }
+body {
+  font-family: var(--ff-body);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  color: var(--clr-black);
+  background-color: var(--clr-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+img, video { display: block; max-width: 100%; height: auto; object-fit: cover; }
+a { color: inherit; text-decoration: none; }
+button { cursor: pointer; border: none; background: none; font-family: inherit; font-size: inherit; }
+input, textarea, select { font-family: inherit; font-size: inherit; }
+ul, ol { list-style: none; }
+h1,h2,h3,h4,h5,h6 { font-family: var(--ff-display); font-weight: 400; line-height: var(--lh-heading); }
+
+/* ── Focus visible ── */
+:focus-visible {
+  outline: 2px solid var(--clr-black);
+  outline-offset: 2px;
+}
+
+/* ── Skip link ── */
+.skipLink {
+  position: absolute;
+  top: -100%;
+  left: var(--sp-4);
+  background: var(--clr-black);
+  color: var(--clr-white);
+  padding: var(--sp-3) var(--sp-6);
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  z-index: 9999;
+  transition: top var(--ease-fast);
+}
+.skipLink:focus {
+  top: var(--sp-4);
+}
+
+/* ── Grain texture overlay (3D/static aesthetic) ── */
+body::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0.022;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* ── Utility: 3D card lift on hover ── */
+.cardLift {
+  transition: transform var(--ease-base), box-shadow var(--ease-base);
+  will-change: transform;
+}
+.cardLift:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.13);
+}
+
+/* ── Utility: depth shadow ── */
+.depthShadow {
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06), 0 8px 32px rgba(0,0,0,0.09);
+}
+
+/* ── Scrollbar styling ── */
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb { background: var(--clr-gray-light); }
+::-webkit-scrollbar-thumb:hover { background: var(--clr-gray-mid); }
+
+/* ── Selection color ── */
+::selection { background: var(--clr-black); color: var(--clr-white); }

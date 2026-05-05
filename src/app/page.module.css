@@ -1,0 +1,529 @@
+.containerWide,
+.section,
+.newsletterInner,
+.brandInner {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.hero {
+  position: relative;
+  overflow: hidden;
+  min-height: 600px;
+  height: 50vh;
+  background: #000;
+}
+
+.heroMedia,
+.heroMedia::after {
+  position: absolute;
+  inset: 0;
+}
+
+.heroImage,
+.editorialImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.heroImage {
+  opacity: 0.6;
+}
+
+.heroInner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  height: 100%;
+  max-width: 1440px;
+  margin: 0 auto;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 0 48px 80px;
+}
+
+.heroContent {
+  transition: transform 0.7s ease, opacity 0.7s ease;
+}
+
+.heroContentLoaded {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.heroContentHidden {
+  opacity: 0;
+  transform: translateY(32px);
+}
+
+.heroEyebrow,
+.eyebrow {
+  margin: 0 0 16px;
+  color: #9ca3af;
+  font-family: var(--font-geist-sans, sans-serif);
+  font-size: 12px;
+  letter-spacing: 0.28em;
+}
+
+.heroTitle,
+.brandTitle,
+.sectionTitle,
+.editorialTitle,
+.sellTitle,
+.newsletterTitle {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-style: italic;
+}
+
+.heroTitle {
+  color: #fff;
+  font-size: clamp(44px, 7.4vw, 104px);
+  line-height: 0.96;
+}
+
+.heroTitleMuted {
+  opacity: 0.8;
+}
+
+.heroText,
+.editorialText,
+.sellText,
+.newsletterText {
+  font-family: var(--font-geist-sans, sans-serif);
+  line-height: 1.8;
+}
+
+.heroText {
+  max-width: 32rem;
+  margin: 16px 0 0;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.heroActions,
+.sectionHeader,
+.brandChips,
+.ctaActions,
+.newsletterForm {
+  display: flex;
+}
+
+.heroActions {
+  flex-wrap: wrap;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.heroSecondary {
+  border-color: #fff;
+  color: #fff;
+}
+
+.heroDots {
+  display: flex;
+  gap: 8px;
+  margin-top: 40px;
+}
+
+.heroDot {
+  width: 16px;
+  height: 1px;
+  border: 0;
+  background: rgba(255, 255, 255, 0.4);
+  transition: width 0.3s ease;
+}
+
+.heroDotActive {
+  width: 32px;
+  background: #fff;
+}
+
+.scrollIndicator {
+  position: absolute;
+  right: 32px;
+  bottom: 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.scrollText {
+  color: #fff;
+  font-family: var(--font-geist-sans, sans-serif);
+  font-size: 10px;
+  letter-spacing: 0.28em;
+  writing-mode: vertical-lr;
+}
+
+.scrollLine {
+  width: 1px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.section {
+  padding: 88px 24px;
+}
+
+.sectionHeader {
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 16px;
+  margin-bottom: 44px;
+}
+
+.sectionTitle,
+.brandTitle {
+  font-size: clamp(34px, 4.3vw, 50px);
+}
+
+.featuredGrid {
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: 22px;
+}
+
+.featuredSecondary {
+  display: grid;
+  gap: 22px;
+}
+
+.categorySection {
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+.categoryRow {
+  display: flex;
+  border-bottom: 1px solid #000;
+}
+
+.categoryRow:last-child {
+  border-bottom: 0;
+}
+
+.containerWide {
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  padding: 22px 24px;
+}
+
+.categoryName {
+  font-family: Georgia, serif;
+  font-size: clamp(28px, 4vw, 42px);
+  font-style: italic;
+  line-height: 1.1;
+}
+
+.categoryMeta {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.categoryCount {
+  color: #6b7280;
+  font-family: var(--font-geist-sans, sans-serif);
+  font-size: 12px;
+}
+
+.categoryArrow {
+  font-size: 24px;
+}
+
+.productGrid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 22px;
+}
+
+.brandSection,
+.newsletter {
+  padding: 88px 24px;
+  background: #000;
+}
+
+.brandInner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.brandTitle,
+.newsletterTitle {
+  color: #fff;
+  text-align: center;
+}
+
+.brandChips {
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  max-width: 62rem;
+  margin-top: 32px;
+}
+
+.brandChip {
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 13px 22px;
+  color: rgba(255, 255, 255, 0.72);
+  font-family: var(--font-geist-sans, sans-serif);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: border-color 0.25s ease, color 0.25s ease, background-color 0.25s ease, transform 0.25s ease;
+}
+
+.brandChip:hover {
+  border-color: #fff;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.08);
+  transform: translateY(-2px);
+}
+
+.editorialGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border: 1px solid #000;
+  background: #000;
+}
+
+.editorialMedia {
+  overflow: hidden;
+  background: #f3f4f6;
+  aspect-ratio: 4 / 5;
+}
+
+.editorialContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 100%;
+  padding: 56px 64px;
+  background: #000;
+  color: #fff;
+}
+
+.editorialTitle,
+.sellTitle,
+.newsletterTitle {
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.2;
+}
+
+.editorialText,
+.newsletterText {
+  margin: 24px 0 32px;
+  color: #9ca3af;
+  font-size: 14px;
+}
+
+.editorialText {
+  max-width: 30rem;
+}
+
+.editorialLink {
+  align-self: flex-start;
+  border: 1px solid #fff;
+  padding: 13px 28px;
+  color: #fff;
+  font-family: var(--font-geist-sans, sans-serif);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.editorialLink:hover {
+  background: #fff;
+  color: #000;
+}
+
+.sellCard {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+  border: 1px solid #000;
+  padding: 56px 64px;
+  background: linear-gradient(180deg, #fff 0%, #fbfbfb 100%);
+}
+
+.sellText {
+  max-width: 32rem;
+  margin: 16px 0 0;
+  color: #4b5563;
+  font-size: 14px;
+}
+
+.sellButton {
+  flex-shrink: 0;
+  padding: 18px 42px;
+}
+
+.newsletterInner {
+  max-width: 42rem;
+  text-align: center;
+}
+
+.newsletterText {
+  margin: 16px 0 40px;
+}
+
+.newsletterSuccess {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  color: #fff;
+  font-family: var(--font-geist-sans, sans-serif);
+  font-size: 14px;
+}
+
+.newsletterSuccessIcon {
+  width: 20px;
+  height: 20px;
+}
+
+.newsletterForm {
+  max-width: 32rem;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.newsletterInput {
+  flex: 1;
+  min-width: 0;
+  border: 1px solid rgba(255, 255, 255, 0.24);
+  border-right: 0;
+  background: transparent;
+  padding: 16px 20px;
+  color: #fff;
+  font-family: var(--font-geist-sans, sans-serif);
+  font-size: 14px;
+  outline: none;
+}
+
+.newsletterInput::placeholder {
+  color: rgba(255, 255, 255, 0.38);
+}
+
+.newsletterInput:focus {
+  border-color: #fff;
+}
+
+.newsletterButton {
+  border: 0;
+  background: #fff;
+  padding: 16px 32px;
+  color: #000;
+  font-family: var(--font-geist-sans, sans-serif);
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+}
+
+.newsletterFinePrint {
+  margin: 16px 0 0;
+  color: rgba(255, 255, 255, 0.42);
+  font-family: var(--font-geist-sans, sans-serif);
+  font-size: 12px;
+}
+
+@media (max-width: 1280px) {
+  .productGrid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+  .featuredGrid {
+    grid-template-columns: 1.2fr 1fr;
+  }
+}
+
+@media (max-width: 900px) {
+  .section,
+  .brandSection,
+  .newsletter {
+    padding: 72px 24px;
+  }
+
+  .featuredGrid,
+  .editorialGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .productGrid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .sellCard {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 44px 40px;
+  }
+
+  .editorialContent {
+    padding: 44px 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .section,
+  .brandSection,
+  .newsletter {
+    padding: 56px 16px;
+  }
+
+  .heroInner {
+    padding: 0 24px 64px;
+  }
+
+  .heroTitle {
+    font-size: clamp(38px, 12vw, 64px);
+  }
+
+  .sectionHeader,
+  .containerWide {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .categoryCount {
+    display: none;
+  }
+
+  .categoryMeta {
+    width: 100%;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .productGrid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+
+  .editorialContent,
+  .sellCard {
+    padding: 32px 24px;
+  }
+
+  .newsletterForm {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .newsletterInput {
+    width: 100%;
+    border-right: 1px solid rgba(255, 255, 255, 0.24);
+  }
+
+  .newsletterButton {
+    width: 100%;
+  }
+}

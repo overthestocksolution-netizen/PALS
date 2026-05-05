@@ -1,0 +1,63 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.mainWrap {
+  position: relative;
+  aspect-ratio: 3 / 4;
+  overflow: hidden;
+  background-color: var(--clr-off-white);
+}
+
+.mainImage {
+  object-fit: cover;
+  transition: opacity var(--ease-base);
+}
+
+.thumbs {
+  display: flex;
+  gap: var(--sp-3);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  padding-bottom: var(--sp-1);
+}
+
+.thumbs::-webkit-scrollbar {
+  display: none;
+}
+
+.thumbBtn {
+  position: relative;
+  width: 72px;
+  height: 88px;
+  flex-shrink: 0;
+  border: 2px solid transparent;
+  background: transparent;
+  cursor: pointer;
+  overflow: hidden;
+  padding: 0;
+  transition: border-color var(--ease-fast);
+}
+
+.thumbActive {
+  border-color: var(--clr-black);
+}
+
+.thumbImage {
+  object-fit: cover;
+}
+
+/* Mobile — swipe feeling */
+@media (max-width: 768px) {
+  .thumbs {
+    gap: var(--sp-2);
+  }
+
+  .thumbBtn {
+    width: 60px;
+    height: 72px;
+  }
+}

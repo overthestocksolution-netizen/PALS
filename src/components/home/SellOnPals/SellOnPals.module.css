@@ -1,0 +1,216 @@
+/* ─── Section ─── */
+.section {
+  background: var(--clr-off-white);
+  border-top: var(--border-default);
+  border-bottom: var(--border-default);
+  padding: var(--sp-24) 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.grain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* ─── Inner grid ─── */
+.inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: clamp(48px, 8vw, 120px);
+  align-items: center;
+  position: relative;
+  z-index: 1;
+}
+
+/* ─── Text column ─── */
+.eyebrow {
+  font-family: var(--ff-body);
+  font-size: var(--fs-label);
+  font-weight: 600;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--clr-gray-mid);
+  margin-bottom: var(--sp-4);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.eyebrow::before {
+  content: '';
+  display: block;
+  width: 22px;
+  height: 1px;
+  background: var(--clr-gray-mid);
+  flex-shrink: 0;
+}
+
+.heading {
+  font-family: var(--ff-display);
+  font-size: clamp(36px, 4.8vw, 66px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: var(--ls-tighter);
+  color: var(--clr-black);
+  margin-bottom: var(--sp-6);
+}
+
+.heading em {
+  font-style: italic;
+  display: block;
+}
+
+.body {
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+  color: var(--clr-gray-dark);
+  max-width: 380px;
+  margin-bottom: var(--sp-10);
+}
+
+/* ─── Actions ─── */
+.actions {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-6);
+  flex-wrap: wrap;
+}
+
+.ctaPrimary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--clr-black);
+  color: var(--clr-white);
+  font-family: var(--ff-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px 32px;
+  border: 1px solid var(--clr-black);
+  transition: background var(--ease-base), color var(--ease-base);
+}
+
+.ctaPrimary:hover {
+  background: transparent;
+  color: var(--clr-black);
+}
+
+.ctaSecondary {
+  font-family: var(--ff-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clr-gray-dark);
+  text-decoration: none;
+  border-bottom: 1px solid var(--clr-gray-light);
+  padding-bottom: 2px;
+  transition: color var(--ease-fast), border-color var(--ease-fast);
+}
+
+.ctaSecondary:hover {
+  color: var(--clr-black);
+  border-color: var(--clr-black);
+}
+
+/* ─── Stats grid ─── */
+.statsGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  border: var(--border-dark);
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+  padding: clamp(24px, 4vw, 44px) clamp(20px, 3.5vw, 40px);
+  border-right: var(--border-dark);
+  border-bottom: var(--border-dark);
+  position: relative;
+  transition: background var(--ease-base);
+}
+
+.stat:nth-child(even) {
+  border-right: none;
+}
+
+.stat:nth-last-child(-n+2) {
+  border-bottom: none;
+}
+
+.stat::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--clr-black);
+  transform: scaleY(0);
+  transform-origin: bottom;
+  transition: transform var(--ease-base);
+}
+
+.stat:hover::before {
+  transform: scaleY(1);
+}
+
+.statValue {
+  font-family: var(--ff-display);
+  font-size: clamp(32px, 4.2vw, 52px);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--clr-black);
+  line-height: 1;
+  position: relative;
+  z-index: 1;
+  transition: color var(--ease-base);
+}
+
+.stat:hover .statValue {
+  color: var(--clr-white);
+}
+
+.statLabel {
+  font-family: var(--ff-body);
+  font-size: var(--fs-xs);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--clr-gray-mid);
+  position: relative;
+  z-index: 1;
+  transition: color var(--ease-base);
+}
+
+.stat:hover .statLabel {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: var(--sp-12);
+  }
+}
+
+@media (max-width: 480px) {
+  .heading {
+    font-size: clamp(32px, 9vw, 48px);
+  }
+
+  .statsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}

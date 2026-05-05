@@ -1,0 +1,115 @@
+.page { min-height: 100vh; }
+
+.hero {
+  background: var(--clr-black);
+  padding: calc(var(--header-h) + var(--sp-16)) var(--gutter) var(--sp-16);
+  max-width: var(--max-w);
+  margin: 0 auto;
+}
+
+.eyebrow {
+  font-family: var(--ff-body);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+  margin-bottom: var(--sp-4);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.eyebrow::before { content: ''; display: block; width: 24px; height: 1px; background: rgba(255,255,255,0.3); }
+
+.title {
+  font-family: var(--ff-display);
+  font-size: clamp(40px, 6vw, 80px);
+  font-weight: 400;
+  line-height: 1.0;
+  letter-spacing: var(--ls-tighter);
+  color: var(--clr-white);
+  margin-bottom: var(--sp-4);
+}
+.title em { font-style: italic; display: block; }
+
+.subtitle {
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+  color: rgba(255,255,255,0.52);
+  max-width: 460px;
+  line-height: var(--lh-body);
+}
+
+.content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: var(--sp-16) var(--gutter);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-16);
+}
+
+.tableSection {}
+
+.tableTitle {
+  font-family: var(--ff-display);
+  font-size: clamp(20px, 2.8vw, 30px);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--clr-black);
+  letter-spacing: var(--ls-tighter);
+  margin-bottom: var(--sp-6);
+  padding-bottom: var(--sp-4);
+  border-bottom: var(--border-dark);
+}
+
+.tableWrap { overflow-x: auto; }
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+}
+
+.table th {
+  background: var(--clr-black);
+  color: var(--clr-white);
+  font-weight: 500;
+  font-size: var(--fs-xs);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: var(--sp-3) var(--sp-5);
+  text-align: left;
+  white-space: nowrap;
+}
+
+.table td {
+  padding: var(--sp-3) var(--sp-5);
+  border-bottom: var(--border-default);
+  color: var(--clr-black);
+}
+
+.table tr:hover td { background: var(--clr-off-white); }
+
+.tip {
+  background: var(--clr-off-white);
+  border: var(--border-default);
+  border-left: 3px solid var(--clr-black);
+  padding: var(--sp-6) var(--sp-8);
+}
+
+.tipTitle {
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  color: var(--clr-black);
+  margin-bottom: var(--sp-2);
+}
+
+.tipBody {
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+  color: var(--clr-gray-dark);
+  line-height: var(--lh-body);
+}

@@ -1,0 +1,243 @@
+.hero,
+.ctaSection {
+  padding: 96px 24px;
+  background: #000;
+  color: #fff;
+}
+
+.heroInner,
+.quoteInner,
+.statsGrid,
+.teamSection {
+  max-width: 1440px;
+  margin: 0 auto;
+}
+
+.heroInner,
+.quoteInner {
+  max-width: 56rem;
+  text-align: center;
+}
+
+.eyebrow {
+  margin: 0 0 16px;
+  color: #6b7280;
+  font-family: var(--font-geist-sans, sans-serif);
+  font-size: 12px;
+  letter-spacing: 0.28em;
+}
+
+.heroTitle,
+.ctaTitle {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: clamp(48px, 8vw, 88px);
+  font-style: italic;
+  line-height: 1.1;
+}
+
+.heroText {
+  max-width: 36rem;
+  margin: 32px auto 0;
+  color: #9ca3af;
+  font-family: var(--font-geist-sans, sans-serif);
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.quoteSection {
+  padding: 96px 24px;
+  border-bottom: 1px solid #000;
+}
+
+.quote {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: clamp(36px, 5vw, 56px);
+  font-style: italic;
+  line-height: 1.25;
+}
+
+.quoteAuthor {
+  margin: 24px 0 0;
+  color: #6b7280;
+  font-family: var(--font-geist-sans, sans-serif);
+  font-size: 14px;
+}
+
+.missionSection {
+  max-width: 1440px;
+  margin: 64px auto 0;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  border: 1px solid #000;
+}
+
+.missionMedia {
+  overflow: hidden;
+  background: #f3f4f6;
+  aspect-ratio: 4 / 3;
+}
+
+.missionImage,
+.memberImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.missionContent {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 56px;
+}
+
+.missionTitle,
+.sectionTitle {
+  margin: 0 0 24px;
+  font-family: Georgia, serif;
+  font-size: clamp(32px, 4vw, 48px);
+  font-style: italic;
+  line-height: 1.2;
+}
+
+.missionText {
+  margin: 0 0 24px;
+  color: #4b5563;
+  font-family: var(--font-geist-sans, sans-serif);
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.statsSection {
+  padding: 64px 24px;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.statCard {
+  padding: 40px 24px;
+  text-align: center;
+  border-right: 1px solid #000;
+}
+
+.statCard:last-child {
+  border-right: 0;
+}
+
+.statNumber {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: clamp(36px, 5vw, 56px);
+  font-style: italic;
+}
+
+.statLabel {
+  margin: 8px 0 0;
+  color: #6b7280;
+  font-family: var(--font-geist-sans, sans-serif);
+  font-size: 12px;
+  letter-spacing: 0.28em;
+}
+
+.teamSection {
+  padding: 64px 24px;
+}
+
+.sectionHeader {
+  margin-bottom: 40px;
+}
+
+.teamGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.memberMedia {
+  overflow: hidden;
+  background: #f3f4f6;
+  aspect-ratio: 3 / 4;
+}
+
+.memberImage {
+  filter: grayscale(1);
+  transition: transform 0.5s ease;
+}
+
+.memberMedia:hover .memberImage {
+  transform: scale(1.05);
+}
+
+.memberBody {
+  padding-top: 16px;
+}
+
+.memberName,
+.memberRole {
+  margin: 0;
+  font-family: var(--font-geist-sans, sans-serif);
+}
+
+.memberName {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.memberRole {
+  margin-top: 4px;
+  color: #6b7280;
+  font-size: 12px;
+}
+
+.ctaSection {
+  text-align: center;
+}
+
+.ctaTitle {
+  margin-bottom: 32px;
+}
+
+.ctaActions {
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+}
+
+.secondaryButton {
+  border-color: #fff;
+  color: #fff;
+}
+
+@media (max-width: 900px) {
+  .missionSection,
+  .statsGrid,
+  .teamGrid {
+    grid-template-columns: 1fr;
+  }
+
+  .statCard {
+    border-right: 0;
+    border-bottom: 1px solid #000;
+  }
+
+  .statCard:last-child {
+    border-bottom: 0;
+  }
+}
+
+@media (max-width: 640px) {
+  .missionContent {
+    padding: 40px 24px;
+  }
+
+  .ctaActions {
+    flex-direction: column;
+  }
+}

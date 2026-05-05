@@ -1,0 +1,235 @@
+/* ─── Layout ─── */
+.section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 72vh;
+  background: var(--clr-black);
+  position: relative;
+  overflow: hidden;
+}
+
+/* ─── Image column ─── */
+.imageCol {
+  position: relative;
+  overflow: hidden;
+  min-height: 520px;
+}
+
+.imageWrap {
+  position: absolute;
+  inset: 0;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center center;
+}
+
+.imageOverlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    transparent 55%,
+    rgba(0, 0, 0, 0.55) 100%
+  );
+}
+
+.imageGrain {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.045;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.88' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size: 200px 200px;
+}
+
+/* Decorative vertical year tag */
+.yearTag {
+  position: absolute;
+  bottom: 40px;
+  left: 28px;
+  font-family: var(--ff-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.35);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+
+/* ─── Text column ─── */
+.textCol {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(48px, 7vw, 100px) clamp(32px, 5vw, 72px);
+  position: relative;
+  border-left: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.inner {
+  max-width: 460px;
+  width: 100%;
+  position: relative;
+  z-index: 1;
+}
+
+/* Eyebrow */
+.eyebrow {
+  font-family: var(--ff-body);
+  font-size: var(--fs-label);
+  font-weight: 500;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.4);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: var(--sp-6);
+}
+
+.eyebrow::before {
+  content: '';
+  display: block;
+  width: 28px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.3);
+  flex-shrink: 0;
+}
+
+/* Heading */
+.heading {
+  font-family: var(--ff-display);
+  font-size: clamp(34px, 4.2vw, 60px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: var(--ls-tighter);
+  color: var(--clr-white);
+  margin-bottom: var(--sp-6);
+}
+
+.headingEm {
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.72);
+}
+
+/* Divider line */
+.divider {
+  width: 48px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.2);
+  margin-bottom: var(--sp-6);
+}
+
+/* Body text */
+.body {
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+  line-height: var(--lh-body);
+  color: rgba(255, 255, 255, 0.52);
+  max-width: 380px;
+  margin-bottom: var(--sp-10);
+}
+
+/* CTA */
+.cta {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-3);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 14px;
+}
+
+.cta::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.45);
+  transition: width var(--ease-base);
+}
+
+.cta:hover::after {
+  width: calc(100% - 48px);
+}
+
+.ctaText {
+  font-family: var(--ff-body);
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--clr-white);
+}
+
+.ctaArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  color: var(--clr-white);
+  transition: background var(--ease-base), border-color var(--ease-base), transform var(--ease-base);
+  flex-shrink: 0;
+}
+
+.cta:hover .ctaArrow {
+  background: var(--clr-white);
+  color: var(--clr-black);
+  border-color: var(--clr-white);
+  transform: translateX(4px);
+}
+
+/* Ghost decorative word */
+.ghostWord {
+  position: absolute;
+  bottom: -0.12em;
+  right: -0.05em;
+  font-family: var(--ff-display);
+  font-size: clamp(80px, 13vw, 170px);
+  font-style: italic;
+  font-weight: 400;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.055);
+  line-height: 1;
+  user-select: none;
+  pointer-events: none;
+  letter-spacing: -0.02em;
+  z-index: 0;
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 900px) {
+  .section {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .imageCol {
+    min-height: 55vw;
+  }
+
+  .imageOverlay {
+    background: linear-gradient(to bottom, transparent 55%, rgba(0,0,0,0.5) 100%);
+  }
+
+  .textCol {
+    border-left: none;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    padding: var(--sp-16) var(--gutter);
+  }
+
+  .ghostWord {
+    font-size: clamp(60px, 20vw, 120px);
+  }
+}
+
+@media (max-width: 480px) {
+  .yearTag { display: none; }
+}

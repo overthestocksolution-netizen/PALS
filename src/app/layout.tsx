@@ -1,60 +1,38 @@
-import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
-import "./globals.css";
-
-import { CartProvider } from "../components/header/CartContext";
-import { WishlistProvider } from "../components/header/WishlistContext";
-import { CompareProvider } from "../components/header/CompareContext";
-
-import "react-toastify/dist/ReactToastify.css";
-import { ToastContainer } from "react-toastify";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
+import type { Metadata } from 'next';
+import '@/styles/globals.css';
+import Header from '@/components/layout/Header/Header';
+import Footer from '@/components/layout/Footer/Footer';
+import CartDrawer from '@/components/cart/CartDrawer/CartDrawer';
 
 export const metadata: Metadata = {
-  title: "eoriCart - Sasti Shopping, Fast Delivery",
-  description: "Fast, affordable online shopping with eoriCart.",
-  icons: {
-    icon: [{ url: "/assets/images/logo/eoricart.png", type: "image/png" }],
+  title: 'PALS — Buy for Less. Sell for True.',
+  description:
+    "Pakistan's premier fashion marketplace. Buy and sell preloved designer pieces, streetwear, and vintage finds.",
+  keywords:
+    'fashion, marketplace, preloved, Pakistan, buy sell clothes, streetwear, designer',
+  openGraph: {
+    title: "PALS — Pakistan's Fashion Marketplace",
+    description: 'Buy for Less. Sell for True. Comment for fashion.',
+    type: 'website',
   },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <head>
-        {/* 🚀 Load CSS from public folder */}
-        <link rel="stylesheet" href="/assets/css/bootstrap.min.css" />
-        <link rel="stylesheet" href="/assets/css/plugins.css" />
-        <link rel="stylesheet" href="/assets/css/style.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        <CompareProvider>
-          <WishlistProvider>
-            <CartProvider>
-              {children}
-              <ToastContainer position="top-right" autoClose={3000} />
-            </CartProvider>
-          </WishlistProvider>
-        </CompareProvider>
+      <body>
+        <a href="#main-content" className="skipLink">Skip to content</a>
+        <Header />
+        <CartDrawer />
+        <main id="main-content">
+          {children}
+        </main>
+        <Footer />
       </body>
     </html>
   );
 }
-
-
-
-

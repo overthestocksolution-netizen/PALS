@@ -1,0 +1,27 @@
+.page {
+  padding-top: var(--header-h);
+}
+
+.inner {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: var(--sp-10) var(--gutter);
+  display: grid;
+  grid-template-columns: 55% 45%;
+  min-height: 80vh;
+}
+
+.gallery {
+  /* ImageGallery fills this */
+}
+
+.info {
+  /* ProductInfo fills this and is sticky */
+}
+
+@media (max-width: 768px) {
+  .inner {
+    grid-template-columns: 1fr;
+    padding: var(--sp-6) var(--gutter);
+  }
+}

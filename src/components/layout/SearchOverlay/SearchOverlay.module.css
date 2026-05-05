@@ -1,0 +1,280 @@
+/* ─── Search Overlay panel ─── */
+.overlay {
+  position: fixed;
+  top: var(--header-h);
+  left: 0;
+  right: 0;
+  z-index: 480;
+  background: var(--clr-white);
+  border-bottom: 2px solid var(--clr-black);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.12);
+}
+
+.inner {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: var(--sp-6) var(--gutter) var(--sp-8);
+}
+
+/* ─── Input row ─── */
+.inputRow {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  border-bottom: 1.5px solid var(--clr-black);
+  padding-bottom: var(--sp-3);
+  margin-bottom: var(--sp-5);
+}
+
+.searchIcon {
+  color: var(--clr-gray-mid);
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  outline: none;
+  font-family: var(--ff-display);
+  font-size: clamp(20px, 3vw, 30px);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--clr-black);
+  background: transparent;
+  letter-spacing: var(--ls-tight);
+  appearance: none;
+}
+
+.input::placeholder {
+  color: var(--clr-gray-light);
+}
+
+.input::-webkit-search-cancel-button,
+.input::-webkit-search-decoration {
+  display: none;
+}
+
+.clearBtn,
+.closeBtn {
+  flex-shrink: 0;
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  color: var(--clr-gray-mid);
+  cursor: pointer;
+  transition: color var(--ease-fast);
+}
+
+.clearBtn:hover,
+.closeBtn:hover {
+  color: var(--clr-black);
+}
+
+.closeBtn {
+  border-left: var(--border-default);
+  margin-left: var(--sp-2);
+  padding-left: var(--sp-2);
+}
+
+/* ─── Trending chips ─── */
+.trending {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+.trendingLabel {
+  font-family: var(--ff-body);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--clr-gray-mid);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.chips {
+  display: flex;
+  gap: var(--sp-2);
+  flex-wrap: wrap;
+}
+
+.chip {
+  font-family: var(--ff-body);
+  font-size: var(--fs-xs);
+  font-weight: 400;
+  letter-spacing: 0.04em;
+  color: var(--clr-black);
+  background: transparent;
+  border: var(--border-default);
+  padding: 6px 14px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: background var(--ease-fast), color var(--ease-fast), border-color var(--ease-fast);
+}
+
+.chip:hover {
+  background: var(--clr-black);
+  color: var(--clr-white);
+  border-color: var(--clr-black);
+}
+
+/* ─── Suggestions list ─── */
+.suggestions {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+}
+
+.suggestion {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-3);
+  padding: 10px var(--sp-3);
+  text-decoration: none;
+  border-bottom: var(--border-default);
+  transition: background var(--ease-fast);
+}
+
+.suggestion:last-child {
+  border-bottom: none;
+}
+
+.suggestion:hover,
+.active {
+  background: var(--clr-off-white);
+}
+
+.typeIcon {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-sm);
+  background: var(--clr-gray-pale);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--clr-gray-dark);
+  flex-shrink: 0;
+  transition: background var(--ease-fast);
+}
+
+.suggestion:hover .typeIcon,
+.active .typeIcon {
+  background: var(--clr-border);
+}
+
+.textBlock {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.suggLabel {
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+  font-weight: 500;
+  color: var(--clr-black);
+  letter-spacing: var(--ls-tight);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.suggSub {
+  font-family: var(--ff-body);
+  font-size: var(--fs-xs);
+  color: var(--clr-gray-mid);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.arrow {
+  font-size: 13px;
+  color: var(--clr-gray-light);
+  flex-shrink: 0;
+  transition: color var(--ease-fast), transform var(--ease-fast);
+}
+
+.suggestion:hover .arrow,
+.active .arrow {
+  color: var(--clr-black);
+  transform: translate(2px, -2px);
+}
+
+/* ─── Highlight match ─── */
+.mark {
+  background: transparent;
+  color: var(--clr-black);
+  font-weight: 700;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 2px;
+}
+
+/* ─── No results ─── */
+.noResults {
+  padding: var(--sp-8) 0;
+  text-align: center;
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+  color: var(--clr-gray-mid);
+}
+
+.noResults em {
+  font-style: italic;
+  color: var(--clr-black);
+}
+
+.browseLink {
+  display: inline-block;
+  margin-top: var(--sp-3);
+  font-family: var(--ff-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--clr-black);
+  text-decoration: none;
+  border-bottom: 1px solid var(--clr-black);
+  padding-bottom: 2px;
+  transition: opacity var(--ease-fast);
+}
+
+.browseLink:hover {
+  opacity: 0.6;
+}
+
+/* ─── Backdrop ─── */
+.backdrop {
+  position: fixed;
+  inset: 0;
+  top: var(--header-h);
+  background: rgba(0, 0, 0, 0.28);
+  z-index: 470;
+  backdrop-filter: blur(2px);
+  -webkit-backdrop-filter: blur(2px);
+}
+
+/* ─── Responsive ─── */
+@media (max-width: 640px) {
+  .trending {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--sp-3);
+  }
+
+  .input {
+    font-size: 20px;
+  }
+}

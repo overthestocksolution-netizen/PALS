@@ -1,0 +1,73 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--sp-6) var(--sp-5);
+}
+
+.empty {
+  grid-column: 1 / -1;
+  padding: var(--sp-20) 0;
+  text-align: center;
+}
+
+.emptyTitle {
+  font-family: var(--ff-display);
+  font-size: var(--fs-h3);
+  font-style: italic;
+  color: var(--clr-black);
+  margin-bottom: var(--sp-3);
+}
+
+.emptyText {
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+  color: var(--clr-gray-mid);
+}
+
+/* Skeleton cards */
+.skeletonCard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-3);
+}
+
+@keyframes shimmer {
+  0%   { background-position: -400px 0; }
+  100% { background-position: 400px 0; }
+}
+
+.skeletonImage {
+  aspect-ratio: 3 / 4;
+  background: linear-gradient(90deg, var(--clr-gray-pale) 25%, var(--clr-border) 50%, var(--clr-gray-pale) 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.6s infinite linear;
+}
+
+.skeletonLine {
+  height: 14px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--clr-gray-pale) 25%, var(--clr-border) 50%, var(--clr-gray-pale) 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.6s infinite linear;
+}
+
+.skeletonLineShort {
+  height: 14px;
+  width: 60%;
+  background: linear-gradient(90deg, var(--clr-gray-pale) 25%, var(--clr-border) 50%, var(--clr-gray-pale) 75%);
+  background-size: 800px 100%;
+  animation: shimmer 1.6s infinite linear;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}

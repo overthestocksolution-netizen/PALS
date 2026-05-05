@@ -1,20 +1,7 @@
-import HeaderOne from "@/components/header/HeaderOne";
-import ShortService from "@/components/service/ShortService";
-import CheckOutMain from "./CheckOutMain";
-import FooterOne from "@/components/footer/FooterOne";
+import CheckoutPage from '@/views/CheckoutPage/CheckoutPage';
 
-export default function Home() {
-    return (
-        <div className="demo-one">
-            <HeaderOne />
+export const metadata = { title: 'Checkout — PALS' };
 
-
-            <CheckOutMain />
-            <ShortService />
-            <FooterOne />
-        </div>
-    );
+export default function Page() {
+  return <CheckoutPage />;
 }
-
-
-

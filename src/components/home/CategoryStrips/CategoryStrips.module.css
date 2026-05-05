@@ -1,0 +1,334 @@
+/* ═══ Section ═══ */
+.section {
+  padding: var(--sp-16) 0 0;
+}
+
+/* ═══ Section header ═══ */
+.sectionHead {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--gutter) var(--sp-10);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--sp-8);
+}
+
+.headLeft {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-2);
+}
+
+.eyebrow {
+  font-family: var(--ff-body);
+  font-size: var(--fs-label);
+  font-weight: 800;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: rgba(207, 31, 31, 0.541);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.eyebrow::before {
+  content: '';
+  display: block;
+  width: 20px;
+  height: 3px;
+  background: rgba(0, 0, 0, 0.25);
+}
+
+.title {
+  font-family: var(--ff-display);
+  font-size: clamp(30px, 4vw, 52px);
+  font-weight: 400;
+  line-height: 1.05;
+  letter-spacing: var(--ls-tighter);
+  color: var(--clr-black);
+}
+
+.title em {
+  font-style: italic;
+}
+
+.viewAll {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--sp-2);
+  font-family: var(--ff-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--clr-black);
+  background: var(--clr-white);
+  text-decoration: none;
+  padding: 10px 22px;
+  white-space: nowrap;
+  border: 1px solid var(--clr-white);
+  transition: background var(--ease-fast), color var(--ease-fast);
+  flex-shrink: 0;
+  align-self: center;
+}
+
+.viewAll:hover {
+  background: transparent;
+  color: var(--clr-white);
+}
+
+.viewAllArrow {
+  transition: transform var(--ease-base);
+}
+
+.viewAll:hover .viewAllArrow {
+  transform: translateX(4px);
+}
+
+/* ═══ Bento grid ═══
+   4 columns:
+   Row 1 (tall):  Men(2col) · Women(1col) · Accessories(1col)
+   Row 2 (short): Brands(1col) · Trending(2col) · Sale(1col)
+═══════════════════════════════════════════════════════════ */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: 460px 280px;
+  gap: 2px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+/* Men — wide hero card */
+.card:nth-child(1) { grid-column: span 2; }
+
+/* Trending — wide card in row 2 */
+.card:nth-child(5) { grid-column: span 2; }
+
+/* ═══ Card ═══ */
+.card {
+  position: relative;
+  overflow: hidden;
+  background: #0a0a0a;
+  text-decoration: none;
+  display: block;
+}
+
+/* ─── Image ─── */
+.imageWrap {
+  position: absolute;
+  inset: 0;
+}
+
+.image {
+  object-fit: cover;
+  object-position: center center;
+  transition: transform 0.7s cubic-bezier(0.25, 0.1, 0.25, 1),
+              filter 0.7s ease;
+  filter: brightness(0.85) saturate(0.9);
+}
+
+.card:hover .image {
+  transform: scale(1.06);
+  filter: brightness(0.75) saturate(0.8);
+}
+
+/* ─── Base overlay — always visible gradient ─── */
+.overlayBase {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top,  rgba(0,0,0,0.82) 0%, rgba(0,0,0,0.3) 40%, rgba(0,0,0,0.04) 70%),
+    linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 30%);
+  z-index: 1;
+}
+
+/* ─── Hover overlay — extra darkening layer ─── */
+.overlayHover {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.28);
+  z-index: 2;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.card:hover .overlayHover {
+  opacity: 1;
+}
+
+/* ─── Ghost number watermark ─── */
+.ghostNum {
+  position: absolute;
+  bottom: -0.15em;
+  right: -0.04em;
+  font-family: var(--ff-display);
+  font-size: clamp(100px, 14vw, 180px);
+  font-style: italic;
+  font-weight: 400;
+  line-height: 1;
+  color: transparent;
+  -webkit-text-stroke: 1px rgba(255, 255, 255, 0.06);
+  z-index: 3;
+  pointer-events: none;
+  user-select: none;
+  transition: -webkit-text-stroke-color 0.5s ease;
+}
+
+.card:hover .ghostNum {
+  -webkit-text-stroke-color: rgba(255, 255, 255, 0.11);
+}
+
+/* ─── Top bar: index + arrow ─── */
+.topBar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-5) var(--sp-5);
+}
+
+.index {
+  font-family: var(--ff-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.2em;
+  color: rgba(255, 255, 255, 0.35);
+  transition: color var(--ease-base);
+}
+
+.card:hover .index {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.arrow {
+  font-size: 16px;
+  color: rgba(255, 255, 255, 0);
+  transition: color var(--ease-base), transform var(--ease-base);
+}
+
+.card:hover .arrow {
+  color: rgba(255, 255, 255, 0.95);
+  transform: translate(2px, -2px);
+}
+
+/* ─── Text block — bottom ─── */
+.textBlock {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 4;
+  padding: var(--sp-6) var(--sp-5) var(--sp-5);
+}
+
+.name {
+  font-family: var(--ff-display);
+  font-size: clamp(22px, 2.6vw, 36px);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--clr-white);
+  letter-spacing: var(--ls-tight);
+  line-height: 1.05;
+  margin-bottom: var(--sp-2);
+  transition: transform var(--ease-base);
+}
+
+.card:hover .name {
+  transform: translateY(-3px);
+}
+
+.meta {
+  display: flex;
+  align-items: center;
+  gap: var(--sp-4);
+  height: 18px;
+  overflow: hidden;
+}
+
+.count {
+  font-family: var(--ff-body);
+  font-size: var(--fs-xs);
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: rgba(255, 255, 255, 0.48);
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.35s ease, transform 0.35s ease;
+}
+
+.card:hover .count {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.shopNow {
+  font-family: var(--ff-body);
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0);
+  border-bottom: 1px solid rgba(255, 255, 255, 0);
+  padding-bottom: 1px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 0.35s ease 0.04s, transform 0.35s ease 0.04s, color 0s;
+}
+
+.card:hover .shopNow {
+  opacity: 1;
+  color: rgba(255, 255, 255, 0.7);
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+  transform: translateY(0);
+}
+
+/* ═══ Responsive ═══ */
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-rows: 380px 240px;
+  }
+}
+
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 260px 260px 260px;
+  }
+
+  /* Reset spans on mobile — all cards are equal */
+  .card:nth-child(1),
+  .card:nth-child(5) {
+    grid-column: span 1;
+  }
+
+  .ghostNum {
+    font-size: 90px;
+  }
+
+  .name {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .section {
+    padding-top: var(--sp-10);
+  }
+
+  .sectionHead {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--sp-4);
+    padding-bottom: var(--sp-6);
+  }
+
+  .grid {
+    grid-template-rows: 220px 220px 220px;
+    gap: 1px;
+  }
+}

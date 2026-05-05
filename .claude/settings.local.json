@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "PowerShell(cd \"d:\\\\Users\\\\RAJPUT COMPUTERS\\\\Desktop\\\\ecommerce-nextjs-main\"; ls public/assets/ -Recurse | Where-Object {!$_.PSIsContainer} | Select-Object -First 40 | Select-Object Name, DirectoryName)",
+      "PowerShell(cd \"d:\\\\Users\\\\RAJPUT COMPUTERS\\\\Desktop\\\\ecommerce-nextjs-main\"; Get-ChildItem public -Recurse -File | Select-Object -First 50 | ForEach-Object { $_.FullName.Replace\\(\\(Get-Location\\).Path, \"\"\\) })",
+      "Bash(npx tsc *)"
+    ]
+  }
+}

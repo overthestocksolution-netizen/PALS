@@ -1,0 +1,81 @@
+.page {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 40px 24px;
+}
+
+.header {
+  margin-bottom: 40px;
+}
+
+.title {
+  margin: 0;
+  font-family: Georgia, serif;
+  font-size: clamp(40px, 5vw, 56px);
+  font-style: italic;
+}
+
+.count {
+  margin: 4px 0 0;
+  color: #6b7280;
+  font-family: var(--font-geist-sans, sans-serif);
+  font-size: 14px;
+}
+
+.emptyState {
+  border: 1px dashed #d1d5db;
+  padding: 128px 24px;
+  text-align: center;
+}
+
+.emptyIcon {
+  width: 48px;
+  height: 48px;
+  margin: 0 auto 16px;
+}
+
+.emptyTitle {
+  margin: 0;
+  color: #9ca3af;
+  font-family: Georgia, serif;
+  font-size: 32px;
+  font-style: italic;
+}
+
+.emptyText {
+  margin: 8px 0 0;
+  color: #6b7280;
+  font-family: var(--font-geist-sans, sans-serif);
+  font-size: 14px;
+}
+
+.emptyButton {
+  display: inline-block;
+  margin-top: 24px;
+  padding: 12px 32px;
+  font-size: 14px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 16px;
+}
+
+@media (max-width: 1280px) {
+  .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

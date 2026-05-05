@@ -1,0 +1,136 @@
+.backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.38);
+  z-index: 700;
+}
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(420px, 100vw);
+  background-color: var(--clr-white);
+  z-index: 800;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--sp-6) var(--sp-6);
+  border-bottom: var(--border-default);
+  flex-shrink: 0;
+}
+
+.heading {
+  font-family: var(--ff-body);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--clr-black);
+}
+
+.closeBtn {
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--ff-body);
+  font-size: 14px;
+  color: var(--clr-gray-mid);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color var(--ease-fast);
+}
+
+.closeBtn:hover {
+  color: var(--clr-black);
+}
+
+.body {
+  flex: 1;
+  overflow-y: auto;
+  padding: var(--sp-4) var(--sp-6) var(--sp-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-6);
+}
+
+.empty {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-4);
+  text-align: center;
+  padding: var(--sp-12) 0;
+}
+
+.emptyMedia {
+  overflow: hidden;
+  background: var(--clr-gray-pale);
+  aspect-ratio: 4 / 5;
+}
+
+.emptyImage {
+  width: 220px;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.emptyTitle {
+  font-family: var(--ff-display);
+  font-size: var(--fs-h3);
+  font-style: italic;
+  color: var(--clr-black);
+}
+
+.emptyText {
+  font-family: var(--ff-body);
+  font-size: var(--fs-sm);
+  color: var(--clr-gray-mid);
+}
+
+.items {
+  display: flex;
+  flex-direction: column;
+}
+
+.summary {
+  /* uses OrderSummary's own styles */
+}
+
+.paymentLogos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: var(--sp-4);
+  flex-wrap: wrap;
+}
+
+.paymentBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 72px;
+  min-height: 38px;
+  padding: 8px 10px;
+  border: var(--border-default);
+  background: #fff;
+}
+
+.paymentLogo {
+  height: 22px;
+  width: auto;
+  object-fit: contain;
+}

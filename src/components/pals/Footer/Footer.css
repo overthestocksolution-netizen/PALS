@@ -1,0 +1,219 @@
+.footer {
+  background: #000;
+  color: #fff;
+}
+
+.newsletter {
+  border-bottom: 1px solid #222;
+  padding: 64px 24px;
+}
+
+.newsletterInner {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: center;
+}
+
+.newsletterHeading {
+  font-family: 'Playfair Display', Georgia, serif;
+  font-style: italic;
+  font-size: clamp(28px, 3vw, 40px);
+  line-height: 1.2;
+  color: #fff;
+}
+
+.newsletterSub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: #888;
+  margin-top: 8px;
+  line-height: 1.6;
+}
+
+.emailForm {
+  display: flex;
+}
+
+.emailInput {
+  flex: 1;
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #444;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  padding: 12px 0;
+  outline: none;
+  transition: border-color 0.2s ease;
+}
+
+.emailInput::placeholder {
+  color: #555;
+}
+
+.emailInput:focus {
+  border-bottom-color: #fff;
+}
+
+.emailSubmit {
+  background: none;
+  border: none;
+  border-bottom: 1px solid #444;
+  color: #fff;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  padding: 12px 24px;
+  cursor: crosshair;
+  transition: background 0.2s ease, color 0.2s ease;
+}
+
+.emailSubmit:hover {
+  background: #fff;
+  color: #000;
+}
+
+.successMsg {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  color: #fff;
+}
+
+.main {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 64px 24px;
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 48px;
+}
+
+.logo {
+  height: 40px;
+  width: auto;
+  margin-bottom: 24px;
+}
+
+.brandDesc {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: #666;
+  line-height: 1.7;
+}
+
+.socials {
+  display: flex;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.socialLink {
+  color: #666;
+  transition: color 0.2s ease;
+}
+
+.socialLink:hover {
+  color: #fff;
+}
+
+.colTitle {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: #555;
+  margin-bottom: 20px;
+}
+
+.colList {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.colLink {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px;
+  color: #666;
+  text-decoration: none;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.colLink::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: #fff;
+  transition: width 0.3s ease;
+}
+
+.colLink:hover {
+  color: #fff;
+}
+
+.colLink:hover::after {
+  width: 100%;
+}
+
+.bottom {
+  border-top: 1px solid #222;
+  padding: 24px;
+}
+
+.bottomInner {
+  max-width: 1440px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.copyright {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  color: #555;
+}
+
+.payments {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.payBadge {
+  border: 1px solid #333;
+  color: #555;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 10px;
+  padding: 4px 8px;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 1023px) {
+  .main {
+    grid-template-columns: 1fr 1fr;
+  }
+  .newsletterInner {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 639px) {
+  .main {
+    grid-template-columns: 1fr 1fr;
+    gap: 32px;
+  }
+}

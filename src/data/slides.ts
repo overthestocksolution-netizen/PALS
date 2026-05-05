@@ -1,0 +1,43 @@
+const P = '/assets/Pals%20imgs';
+
+export const heroSlides = [
+  {
+    id: 1,
+    num: '01',
+    category: 'Womenswear',
+    headline: 'Buy for',
+    headlineEm: 'Less.',
+    tagline: "Pakistan's premier fashion marketplace.",
+    cta: 'Shop Women',
+    href: '/shop?cat=women',
+    image: `${P}/alyssa-strohmann-TS--uNw-JqE-unsplash.jpg`,
+    alt: 'Woman in oversized blazer — PALS Womenswear 2025',
+    accent: 'New Collection — 2025',
+  },
+  {
+    id: 2,
+    num: '02',
+    category: 'Menswear',
+    headline: 'Dress with',
+    headlineEm: 'Intention.',
+    tagline: 'Curated menswear for the discerning few.',
+    cta: 'Shop Men',
+    href: '/shop?cat=men',
+    image: `${P}/tobias-van-schneider-gCeCpP15V1o-unsplash.jpg`,
+    alt: 'Man in tailored look — PALS Menswear Edit',
+    accent: 'Menswear Edit',
+  },
+  {
+    id: 3,
+    num: '03',
+    category: 'Accessories',
+    headline: 'Details',
+    headlineEm: 'Define You.',
+    tagline: 'The accessories that complete the look.',
+    cta: 'Shop Accessories',
+    href: '/shop?cat=accessories',
+    image: `${P}/clark-street-mercantile-qnKhZJPKFD8-unsplash.jpg`,
+    alt: 'Fashion accessories editorial — PALS Accessories',
+    accent: 'The Edit',
+  },
+];

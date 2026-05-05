@@ -1,0 +1,10 @@
+.wrapper {
+  max-width: var(--max-w);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+  width: 100%;
+}
+
+.narrow {
+  max-width: 800px;
+}
