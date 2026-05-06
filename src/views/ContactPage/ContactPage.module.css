@@ -5,6 +5,52 @@
   padding-top: var(--header-h);
 }
 
+.formError {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #c0392b;
+  font-family: var(--ff-body);
+  font-size: var(--fs-xs);
+  padding: var(--sp-3) var(--sp-4);
+  margin-bottom: var(--sp-4);
+}
+
+.fieldError {
+  display: block;
+  font-family: var(--ff-body);
+  font-size: var(--fs-xs);
+  color: #c0392b;
+  margin-top: 4px;
+}
+
+.textareaError {
+  border-color: #c0392b !important;
+}
+
+.successBlock {
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-4);
+}
+
+.resetBtn {
+  font-family: var(--ff-body);
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clr-black);
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid var(--clr-black);
+  padding-bottom: 2px;
+  cursor: pointer;
+  align-self: flex-start;
+  transition: opacity var(--ease-fast);
+}
+
+.resetBtn:hover { opacity: 0.6; }
+
 .imagePane {
   position: relative;
   overflow: hidden;

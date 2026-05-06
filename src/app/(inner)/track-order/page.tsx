@@ -1,15 +1,29 @@
 'use client';
 
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useOrderTracking } from '@/hooks/useOrderTracking';
+import { orderTrackingSchema, type OrderTrackingValues } from '@/lib/schemas';
 import styles from './page.module.css';
 
 export default function TrackOrderPage() {
-  const [orderId, setOrderId] = useState('');
-  const [submitted, setSubmitted] = useState(false);
+  const {
+    register,
+    handleSubmit,
+    formState: { errors, isSubmitting },
+    reset,
+  } = useForm<OrderTrackingValues>({ resolver: zodResolver(orderTrackingSchema) });
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-    if (orderId.trim()) setSubmitted(true);
+  const { mutate, data, isPending, isSuccess, isError, reset: resetMutation } = useOrderTracking();
+
+  function onSubmit(values: OrderTrackingValues) {
+    mutate({ orderId: values.orderId });
+  }
+
+  function handleReset() {
+    reset();
+    resetMutation();
   }
 
   return (
@@ -21,54 +35,100 @@ export default function TrackOrderPage() {
       </div>
 
       <div className={styles.content}>
-        {!submitted ? (
-          <form className={styles.form} onSubmit={handleSubmit}>
+        {!isSuccess ? (
+          <form className={styles.form} onSubmit={handleSubmit(onSubmit)} noValidate>
             <div className={styles.field}>
               <label className={styles.label} htmlFor="orderId">Order ID</label>
               <input
                 id="orderId"
                 type="text"
-                value={orderId}
-                onChange={(e) => setOrderId(e.target.value)}
                 placeholder="e.g. PALS-2025-00123"
-                className={styles.input}
-                required
+                className={`${styles.input} ${errors.orderId ? styles.inputError : ''}`}
+                {...register('orderId')}
               />
+              {errors.orderId && (
+                <span className={styles.fieldError}>{errors.orderId.message}</span>
+              )}
             </div>
-            <button type="submit" className={styles.btn}>Track Order</button>
+
+            <button
+              type="submit"
+              className={styles.btn}
+              disabled={isPending || isSubmitting}
+            >
+              {isPending ? (
+                <span className={styles.btnLoading}>
+                  <SpinnerSvg />
+                  Tracking…
+                </span>
+              ) : 'Track Order'}
+            </button>
+
+            {isError && (
+              <p className={styles.errorMsg}>Something went wrong. Please try again.</p>
+            )}
+
             <p className={styles.hint}>
               Find your Order ID in your confirmation email or under My Orders in your account.
             </p>
           </form>
         ) : (
           <div className={styles.result}>
-            <div className={styles.resultHeader}>
-              <span className={styles.resultIcon}>✓</span>
-              <div>
-                <p className={styles.resultLabel}>Order Found</p>
-                <p className={styles.resultId}>{orderId}</p>
+            {data?.status === 'not_found' ? (
+              <div className={styles.notFound}>
+                <p className={styles.notFoundTitle}>Order not found</p>
+                <p className={styles.notFoundText}>
+                  No order found for <strong>{data.orderId}</strong>. Please check your Order ID and try again.
+                </p>
+                <button className={styles.btnSecondary} onClick={handleReset}>Try Again</button>
               </div>
-            </div>
-            <div className={styles.timeline}>
-              {[
-                { label: 'Order Placed',    done: true  },
-                { label: 'Payment Confirmed', done: true  },
-                { label: 'Packed & Dispatched', done: true  },
-                { label: 'Out for Delivery', done: false },
-                { label: 'Delivered',        done: false },
-              ].map((step, i) => (
-                <div key={i} className={`${styles.timelineStep} ${step.done ? styles.done : ''}`}>
-                  <div className={styles.dot} />
-                  <span className={styles.timelineLabel}>{step.label}</span>
+            ) : (
+              <>
+                <div className={styles.resultHeader}>
+                  <span className={styles.resultIcon}>✓</span>
+                  <div>
+                    <p className={styles.resultLabel}>Order Found</p>
+                    <p className={styles.resultId}>{data?.orderId}</p>
+                  </div>
                 </div>
-              ))}
-            </div>
-            <button className={styles.btnSecondary} onClick={() => { setSubmitted(false); setOrderId(''); }}>
-              Track Another Order
-            </button>
+
+                <div className={styles.timeline}>
+                  {data?.steps.map((step, i) => (
+                    <div key={i} className={`${styles.timelineStep} ${step.done ? styles.done : ''}`}>
+                      <div className={styles.dot} />
+                      <span className={styles.timelineLabel}>{step.label}</span>
+                      {step.timestamp && (
+                        <span className={styles.timestamp}>{step.timestamp}</span>
+                      )}
+                    </div>
+                  ))}
+                </div>
+
+                <button className={styles.btnSecondary} onClick={handleReset}>
+                  Track Another Order
+                </button>
+              </>
+            )}
           </div>
         )}
       </div>
     </div>
+  );
+}
+
+function SpinnerSvg() {
+  return (
+    <svg
+      className={styles.spinner}
+      width="14" height="14"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      aria-hidden="true"
+    >
+      <path d="M21 12a9 9 0 1 1-6.219-8.56" />
+    </svg>
   );
 }

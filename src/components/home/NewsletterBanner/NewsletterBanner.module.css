@@ -90,6 +90,22 @@
   letter-spacing: var(--ls-wide);
 }
 
+.inputWrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.inputError {
+  border-bottom-color: #c0392b !important;
+}
+
+.fieldError {
+  font-family: var(--ff-body);
+  font-size: var(--fs-xs);
+  color: #fca5a5;
+}
+
 /* Mobile */
 @media (max-width: 640px) {
   .form {

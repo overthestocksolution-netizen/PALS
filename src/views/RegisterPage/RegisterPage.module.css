@@ -63,6 +63,44 @@
   gap: var(--sp-5);
 }
 
+.formError {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #c0392b;
+  font-family: var(--ff-body);
+  font-size: var(--fs-xs);
+  padding: var(--sp-3) var(--sp-4);
+  margin-bottom: var(--sp-2);
+}
+
+.passwordWrap {
+  position: relative;
+}
+
+.eyeBtn {
+  position: absolute;
+  right: 0;
+  bottom: var(--sp-3);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  line-height: 1;
+}
+
+.checkboxError {
+  outline: 2px solid #c0392b;
+  outline-offset: 1px;
+}
+
+.agreeError {
+  display: block;
+  font-family: var(--ff-body);
+  font-size: var(--fs-xs);
+  color: #c0392b;
+  margin-top: calc(-1 * var(--sp-3));
+}
+
 .agreeLabel {
   display: flex;
   align-items: flex-start;

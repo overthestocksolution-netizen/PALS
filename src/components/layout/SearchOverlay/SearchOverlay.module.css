@@ -222,6 +222,16 @@
   text-underline-offset: 2px;
 }
 
+/* ─── Searching indicator ─── */
+.searching {
+  padding: var(--sp-6) var(--sp-3);
+  font-family: var(--ff-body);
+  font-size: var(--fs-xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--clr-gray-mid);
+}
+
 /* ─── No results ─── */
 .noResults {
   padding: var(--sp-8) 0;

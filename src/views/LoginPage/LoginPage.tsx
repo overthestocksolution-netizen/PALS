@@ -3,18 +3,35 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { useMutation } from '@tanstack/react-query';
 import Input from '@/components/ui/Input/Input';
 import Button from '@/components/ui/Button/Button';
+import { loginSchema, type LoginValues } from '@/lib/schemas';
 import styles from './LoginPage.module.css';
+
+async function loginUser(data: LoginValues) {
+  await new Promise((r) => setTimeout(r, 800));
+  if (data.email === 'error@test.com') throw new Error('Invalid credentials');
+  return { success: true };
+}
 
 export default function LoginPage() {
   const [showPw, setShowPw] = useState(false);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault();
-  }
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm<LoginValues>({ resolver: zodResolver(loginSchema) });
+
+  const { mutate, isPending, isError, error } = useMutation({
+    mutationFn: loginUser,
+    onSuccess: () => {
+      window.location.href = '/';
+    },
+  });
 
   return (
     <div className={styles.page}>
@@ -22,41 +39,45 @@ export default function LoginPage() {
         <Image
           src="/assets/Pals%20imgs/sincerely-media-9ShY-Tq70Mc-unsplash.jpg"
           alt="PALS fashion editorial"
-          fill
-          priority
-          sizes="50vw"
+          fill priority sizes="50vw"
           className={styles.bgImage}
         />
       </div>
+
       <div className={styles.formPane}>
         <div className={styles.formInner}>
           <Link href="/" className={styles.logo}>PALS</Link>
           <h1 className={styles.heading}>Welcome back</h1>
           <p className={styles.subtext}>Sign in to your account</p>
 
-          <form onSubmit={handleSubmit} className={styles.form} noValidate>
+          {isError && (
+            <div className={styles.formError} role="alert">
+              {error instanceof Error ? error.message : 'Something went wrong. Please try again.'}
+            </div>
+          )}
+
+          <form onSubmit={handleSubmit((v) => mutate(v))} className={styles.form} noValidate>
             <Input
               label="Email"
               type="email"
               id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
               underlineOnly
               placeholder="you@example.com"
-              required
               autoComplete="email"
+              error={errors.email?.message}
+              {...register('email')}
             />
+
             <div className={styles.passwordWrap}>
               <Input
                 label="Password"
                 type={showPw ? 'text' : 'password'}
                 id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
                 underlineOnly
                 placeholder="Your password"
-                required
                 autoComplete="current-password"
+                error={errors.password?.message}
+                {...register('password')}
               />
               <button
                 type="button"
@@ -67,6 +88,7 @@ export default function LoginPage() {
                 {showPw ? '🙈' : '👁'}
               </button>
             </div>
+
             <div className={styles.row}>
               <label className={styles.rememberLabel}>
                 <input type="checkbox" className={styles.checkbox} />
@@ -74,8 +96,9 @@ export default function LoginPage() {
               </label>
               <Link href="/forgot-password" className={styles.forgotLink}>Forgot password?</Link>
             </div>
-            <Button type="submit" fullWidth size="lg">
-              Sign In →
+
+            <Button type="submit" fullWidth size="lg" disabled={isPending}>
+              {isPending ? 'Signing in…' : 'Sign In →'}
             </Button>
           </form>
 
@@ -86,10 +109,10 @@ export default function LoginPage() {
           </div>
 
           <div className={styles.socialRow}>
-            <button className={styles.socialBtn} aria-label="Continue with Google">
+            <button className={styles.socialBtn} aria-label="Continue with Google" type="button">
               <GoogleIcon /> Google
             </button>
-            <button className={styles.socialBtn} aria-label="Continue with Facebook">
+            <button className={styles.socialBtn} aria-label="Continue with Facebook" type="button">
               <FacebookIcon /> Facebook
             </button>
           </div>

@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import '@/styles/globals.css';
+import Providers from '@/providers/Providers';
 import Header from '@/components/layout/Header/Header';
 import Footer from '@/components/layout/Footer/Footer';
 import CartDrawer from '@/components/cart/CartDrawer/CartDrawer';
@@ -25,13 +26,15 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body>
-        <a href="#main-content" className="skipLink">Skip to content</a>
-        <Header />
-        <CartDrawer />
-        <main id="main-content">
-          {children}
-        </main>
-        <Footer />
+        <Providers>
+          <a href="#main-content" className="skipLink">Skip to content</a>
+          <Header />
+          <CartDrawer />
+          <main id="main-content">
+            {children}
+          </main>
+          <Footer />
+        </Providers>
       </body>
     </html>
   );

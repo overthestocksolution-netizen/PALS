@@ -4,6 +4,16 @@
   min-height: 100vh;
 }
 
+.formError {
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #c0392b;
+  font-family: var(--ff-body);
+  font-size: var(--fs-xs);
+  padding: var(--sp-3) var(--sp-4);
+  margin-bottom: var(--sp-4);
+}
+
 .imagePane {
   position: relative;
   overflow: hidden;

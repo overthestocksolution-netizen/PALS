@@ -3,7 +3,9 @@
 import React, { useRef, useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 import { AnimatePresence, motion } from 'framer-motion';
-import { trendingSearches, searchSuggestions, type SearchSuggestion, type SuggestionType } from '@/data/search';
+import { trendingSearches, type SearchSuggestion, type SuggestionType } from '@/data/search';
+import { useDebounce } from '@/hooks/useDebounce';
+import { useSearchSuggestions } from '@/hooks/useSearchSuggestions';
 import styles from './SearchOverlay.module.css';
 
 interface Props {
@@ -16,14 +18,8 @@ export default function SearchOverlay({ open, onClose }: Props) {
   const [active, setActive] = useState(-1);
   const inputRef = useRef<HTMLInputElement>(null);
 
-  const filtered = query.trim().length > 0
-    ? searchSuggestions
-        .filter((s) =>
-          s.label.toLowerCase().includes(query.toLowerCase()) ||
-          s.sub.toLowerCase().includes(query.toLowerCase())
-        )
-        .slice(0, 8)
-    : [];
+  const debouncedQuery = useDebounce(query, 220);
+  const { data: filtered = [], isFetching } = useSearchSuggestions(debouncedQuery);
 
   useEffect(() => {
     if (open) {
@@ -120,6 +116,11 @@ export default function SearchOverlay({ open, onClose }: Props) {
                     ))}
                   </div>
                 </motion.div>
+              )}
+
+              {/* ── Loading indicator ── */}
+              {isFetching && query.trim().length > 0 && filtered.length === 0 && (
+                <div className={styles.searching} aria-live="polite">Searching…</div>
               )}
 
               {/* ── Live suggestions ── */}
